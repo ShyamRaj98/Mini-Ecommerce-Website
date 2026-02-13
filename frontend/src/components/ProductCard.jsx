@@ -11,7 +11,7 @@ const ProductCard = ({ product }) => {
       {/* Image Section */}
       <div className="relative overflow-hidden">
         <img
-          src={`http://localhost:5000${product.image}`}
+          src={`${import.meta.env.VITE_API_URL || "http://localhost:5000"}${product.image}`}
           alt={product.name}
           className="w-full h-56 object-cover transform group-hover:scale-110 transition duration-500"
         />
