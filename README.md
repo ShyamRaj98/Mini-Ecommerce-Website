@@ -6,6 +6,7 @@ This project includes user shopping functionality and a complete admin panel for
 
 ---
 
+
 ## 🚀 Features
 
 ### 👤 User Features
@@ -70,12 +71,16 @@ ecommerce/
 
 ---
 
+## Demo Link
+```bash
+https://fitzdoz.netlify.app
+```
 ## ⚙️ Installation & Setup
 
 ### 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/ShyamRaj98/Mini-Ecommerce-Website.git
 cd your-repo-name
 ```
 
