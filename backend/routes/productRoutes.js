@@ -12,17 +12,10 @@ import upload from "../middleware/uploadMiddleware.js";
 
 const router = express.Router();
 
-/* =========================================
-   🔐 ADMIN ROUTES
-========================================= */
 
-// Add Product
+//  ADMIN ROUTES
 router.post("/", protect, adminOnly, upload.single("image"), addProduct);
-
-// Get All Products (Admin)
 router.get("/admin/products", protect, adminOnly, getAllProductsAdmin);
-
-// Update Product
 router.put(
   "/admin/products/:id",
   protect,

@@ -15,7 +15,6 @@ export default function AllProductList() {
   const navigate = useNavigate();
   const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
-  // 🔐 Admin Protection
   useEffect(() => {
     if (!user || !user.isAdmin) {
       navigate("/");
@@ -41,7 +40,6 @@ export default function AllProductList() {
     try {
       setActionLoading(id);
 
-      // Optimistic UI
       setProducts((prev) => prev.filter((p) => p._id !== id));
       setFilteredProducts((prev) => prev.filter((p) => p._id !== id));
 
@@ -57,8 +55,6 @@ export default function AllProductList() {
   const toggleStatus = async (product) => {
     try {
       setActionLoading(product._id);
-
-      // Optimistic update
       const updatedProducts = products.map((p) =>
         p._id === product._id
           ? { ...p, isActive: !p.isActive }

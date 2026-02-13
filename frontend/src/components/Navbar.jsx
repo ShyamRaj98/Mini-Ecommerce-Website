@@ -71,7 +71,7 @@ const Navbar = () => {
             Products
           </Link> */}
 
-          {/* 🛒 Cart Icon */}
+          {/* Cart Icon */}
           <Link to="/cart" className="relative">
             <ShoppingCart size={22} />
             {cartCount > 0 && (

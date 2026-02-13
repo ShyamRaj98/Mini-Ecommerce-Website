@@ -18,7 +18,7 @@ const ProductDetails = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  // 🔥 Fetch Product
+
   useEffect(() => {
     const fetchProduct = async () => {
       try {
@@ -40,12 +40,12 @@ const ProductDetails = () => {
     fetchProduct();
   }, [id]);
 
-  // Unique Colors
+
   const colors = useMemo(() => {
     return [...new Set(product?.variants?.map((v) => v.color))];
   }, [product]);
 
-  // Sizes by color
+
   const sizes = useMemo(() => {
     return product?.variants
       ?.filter((v) => v.color === selectedColor)

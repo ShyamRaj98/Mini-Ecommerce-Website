@@ -26,14 +26,12 @@ const AddProduct = () => {
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
 
-  // 🔐 Admin Protection
   useEffect(() => {
     if (!user || !user.isAdmin) {
       navigate("/");
     }
   }, [user, navigate]);
 
-  // Cleanup image preview memory
   useEffect(() => {
     return () => {
       if (preview) URL.revokeObjectURL(preview);

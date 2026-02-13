@@ -4,10 +4,6 @@ export const createOrder = async (req, res) => {
   try {
     const { orderItems, shippingAddress, totalPrice } = req.body;
 
-    // 🔥 Debug logs (remove later if needed)
-    console.log("REQ USER:", req.user);
-    console.log("REQ BODY:", req.body);
-
     if (!req.user) {
       return res.status(401).json({ message: "User not authenticated" });
     }

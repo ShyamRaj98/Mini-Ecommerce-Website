@@ -29,14 +29,12 @@ const EditProduct = () => {
   const [fetchLoading, setFetchLoading] = useState(true);
   const [error, setError] = useState("");
 
-  // 🔐 Admin Protection
   useEffect(() => {
     if (!user || !user.isAdmin) {
       navigate("/");
     }
   }, [user, navigate]);
 
-  // 🟢 Fetch Product
   useEffect(() => {
     const fetchProduct = async () => {
       try {

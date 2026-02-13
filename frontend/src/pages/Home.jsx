@@ -20,7 +20,7 @@ const Home = () => {
 
   const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
-  // 🔥 Debounce Search
+  //  Search
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedSearch(search);
@@ -30,7 +30,6 @@ const Home = () => {
     return () => clearTimeout(timer);
   }, [search]);
 
-  // 🔥 Fetch Products
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -48,7 +47,6 @@ const Home = () => {
         setProducts(data.products);
         setTotalPages(data.totalPages);
 
-        // unique categories
         const uniqueCategories = [
           ...new Set(data.products.map((p) => p.category)),
         ];
@@ -67,8 +65,6 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-
-      {/* HERO */}
       <div className="bg-black text-white py-2 text-center">
         <h1 className="text-3xl md:text-4xl font-semibold">
           Search Product

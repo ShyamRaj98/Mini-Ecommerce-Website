@@ -10,7 +10,6 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // 🔥 Load user from localStorage + fetch fresh profile
   useEffect(() => {
     const initAuth = async () => {
       const storedUser = localStorage.getItem("userInfo");
@@ -37,7 +36,7 @@ export const AuthProvider = ({ children }) => {
     initAuth();
   }, []);
 
-  // 🔥 Register
+  //Register
   const register = async (name, email, password) => {
     const { data } = await api.post("/auth/register", {
       name,
@@ -50,7 +49,7 @@ export const AuthProvider = ({ children }) => {
     navigate("/");
   };
 
-  // 🔥 Login
+  // Login
   const login = async (email, password) => {
     const { data } = await api.post("/auth/login", {
       email,
@@ -62,14 +61,14 @@ export const AuthProvider = ({ children }) => {
     navigate("/");
   };
 
-  // 🔥 Logout
+  // Logout
   const logout = () => {
     localStorage.removeItem("userInfo");
     setUser(null);
     navigate("/login");
   };
 
-  // 🔥 Update user (for profile edit page)
+  // Update user (for profile edit page)
   const updateUser = (updatedData) => {
     const updatedUser = { ...user, ...updatedData };
     setUser(updatedUser);

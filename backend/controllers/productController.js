@@ -1,8 +1,7 @@
 import Product from "../models/Product.js";
 
-/* =========================================
-   ➕ Add Product (Admin Only)
-========================================= */
+
+  // Add Product (Admin Only)
 export const addProduct = async (req, res) => {
   try {
     const {
@@ -33,9 +32,9 @@ export const addProduct = async (req, res) => {
   }
 };
 
-/* =========================================
-   📦 Get All Products (Public)
-========================================= */
+
+  // Get All Products (Public)
+
 export const getProducts = async (req, res) => {
   try {
     const page = Number(req.query.page) || 1;
@@ -74,9 +73,8 @@ export const getProducts = async (req, res) => {
   }
 };
 
-/* =========================================
-   🔍 Get Single Product (Public)
-========================================= */
+
+  // Get Single Product (Public)
 export const getProductById = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
@@ -91,9 +89,9 @@ export const getProductById = async (req, res) => {
   }
 };
 
-/* =========================================
-   📦 Get All Products (Admin)
-========================================= */
+
+  // Get All Products (Admin)
+
 export const getAllProductsAdmin = async (req, res) => {
   try {
     const products = await Product.find().sort({ createdAt: -1 });
@@ -103,9 +101,8 @@ export const getAllProductsAdmin = async (req, res) => {
   }
 };
 
-/* =========================================
-   ✏ Update Product (Admin)
-========================================= */
+
+  // Update Product (Admin)
 export const updateProduct = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);

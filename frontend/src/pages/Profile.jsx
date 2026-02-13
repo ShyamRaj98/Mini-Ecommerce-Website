@@ -12,7 +12,7 @@ const Profile = () => {
     address: "",
   });
 
-  // Separate states (IMPORTANT FIX)
+
   const [profileImageFile, setProfileImageFile] = useState(null);
   const [profileImagePath, setProfileImagePath] = useState("");
 
@@ -94,12 +94,12 @@ const Profile = () => {
         },
       });
 
-      // Update context + localStorage
+   
       const updatedUser = { ...user, ...data };
       setUser(updatedUser);
       localStorage.setItem("userInfo", JSON.stringify(updatedUser));
 
-      // Update image path
+
       setProfileImagePath(data.profileImage);
       setPreviewImage(null);
       setProfileImageFile(null);
