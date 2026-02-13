@@ -125,7 +125,7 @@ const Profile = () => {
   const imageUrl =
     previewImage ||
     (profileImagePath
-      ? `http://localhost:5000${profileImagePath}`
+      ? `${import.meta.env.VITE_API_URL || "http://localhost:5000"}${profileImagePath}`
       : dummyProfile);
 
   return (
