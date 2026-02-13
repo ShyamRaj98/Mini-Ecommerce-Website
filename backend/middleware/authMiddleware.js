@@ -13,16 +13,22 @@ export const protect = async (req, res, next) => {
 
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-      req.user = await User.findById(decoded.id).select("-password");
+      const user = await User.findById(decoded.id).select("-password");
 
+      if (!user) {
+        return res.status(401).json({ message: "User not found" });
+      }
+
+      req.user = user;
       next();
     } catch (error) {
+      console.error("Auth error:", error.message);
       return res.status(401).json({ message: "Not authorized" });
     }
   }
 
   if (!token) {
-    return res.status(401).json({ message: "No token" });
+    return res.status(401).json({ message: "No token provided" });
   }
 };
 
@@ -30,7 +36,6 @@ export const adminOnly = (req, res, next) => {
   if (req.user && req.user.isAdmin) {
     next();
   } else {
-    res.status(403).json({ message: "Admin access only" });
+    return res.status(403).json({ message: "Admin access only" });
   }
 };
-
